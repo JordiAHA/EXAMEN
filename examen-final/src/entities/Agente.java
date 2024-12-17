@@ -1,9 +1,12 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class Agente extends Entidad {
     private String habilidadEspecial;
     private String misionAsignada;
     private int nivel;
+  
 
     public Agente(int id, String nombre, String habilidadEspecial, int nivel) {
         super(id, nombre);
@@ -29,8 +32,24 @@ public class Agente extends Entidad {
 
     public int nivel(){
         return nivel;
+       
 
     }
+
+    public ArrayList<String> estadistica() {
+        ArrayList<String> estadisticaArrayList = new ArrayList<String>();
+         estadisticaArrayList.add(nombre);
+         estadisticaArrayList.add(habilidadEspecial);
+         estadisticaArrayList.add(Integer.toString(nivel));
+         estadisticaArrayList.add(misionAsignada);
+
+         return estadisticaArrayList;         
+    
+        
+
+    }
+  
+
 
     @Override
     public String toString() {
@@ -38,3 +57,11 @@ public class Agente extends Entidad {
                 (misionAsignada != null ? ", Misión: " + misionAsignada : "");
     }
 }
+
+
+
+//Requerimiento 7: Estadísticas Simples
+//Descripción: Mostrar estadísticas básicas del sistema.
+//Tareas:
+//Contar el número total de agentes y anomalías registrados.
+//Mostrar en consola los totales.//

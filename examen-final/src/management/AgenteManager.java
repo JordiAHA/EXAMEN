@@ -20,10 +20,12 @@ public class AgenteManager {
     public void registrarAgente() {
         int id = ConsoleUtils.leerEntero("Ingrese el ID del agente: ");
         int nivel= ConsoleUtils.leerEntero("ingrese el nivel del agente: ");
+
         ConsoleUtils.limpiarBuffer(); // Consumir cualquier salto de línea residual
 
         String nombre = ConsoleUtils.leerTexto("Ingrese el nombre del agente: ");
         String habilidad = ConsoleUtils.leerTexto("Ingrese la habilidad especial del agente: ");
+        
         
         aumentarnivel();
 
@@ -49,6 +51,14 @@ public class AgenteManager {
         
     }
     
+    public void mostrarestadistica (){
+        for (Agente  agente : agentes) {
+            
+        }
+       System.out.println( nivel, nivel , habilidad    );
+
+    }
+
 
     public void mostrarAgentes() {
         if (agentes.isEmpty()) {
@@ -59,6 +69,7 @@ public class AgenteManager {
         for (Agente agente : agentes) {
             System.out.println(agente);
             System.out.print("nivel: "+nivel);
+        
         }
     }
 
@@ -68,14 +79,16 @@ public class AgenteManager {
             System.out.println("\n=== Menú Agentes ===");
             System.out.println("1. Registrar Agente");
             System.out.println("2. Mostrar Agentes");
-            System.out.println("3. Salir");
+            System.out.println("3. Mostrar estadistica");
+            System.out.println("4. Salir");
             int opcion = ConsoleUtils.leerEntero("Seleccione una opción: ");
             ConsoleUtils.limpiarBuffer(); // Consumir cualquier salto de línea residual
 
             switch (opcion) {
                 case 1 -> registrarAgente();
                 case 2 -> mostrarAgentes();
-                case 3 -> continuar = false;
+                case 3 -> mostrarestadistica();
+                case 4 -> continuar = false;
                 default -> System.out.println("Opción no válida.");
             }
         }
